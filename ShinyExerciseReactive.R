@@ -10,8 +10,11 @@
 #' ---
 #' 
 
-#' For a real shiny app, ui and server should probably be separated...
+#' For a real shiny app, 
+#' ui and server should probably be separated...
 
+#' OK, some cosmetical changes 
+#' to improve understanding of Github
 
 library(shiny)
 
@@ -21,14 +24,18 @@ library(shiny)
 #library(lubridate)
 #library(stringi) # for stri_split
 
+# number_list is the vector of numbers (a, b, or c) which is picked when
+# offered a choice (lists defined in vectorList)
 
- 
+
+# funny function just to have something to play with 
+
 fct_calc_sth <- function(number_list){
   sth <-  mean(number_list, na.rm = TRUE) + 2 + length(number_list)
   return(sth)
 }
 
-# function for plot over one series
+# to calculate sum of square of number list
 
 fct_sq_sum <- function(number_list){
   
@@ -176,7 +183,7 @@ server <- function(input, output, session) {
                                  }) 
   output$applyFct <- renderText({ 
                      paste("sum of squared elements of", 
-                                         list_index(), ":", sq_sum() ) 
+                                         list_index(), "is", sq_sum() ) 
                                   })
   
   # ok, seems that i do not need reactive for the function if the variable is reactive. good!
